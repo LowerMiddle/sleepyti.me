@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import sys
 import os
 import time
@@ -69,28 +71,40 @@ def main2():
 def ein():
   from datetime import timedelta
   while True:
-    timee = datetime.datetime.strptime(raw_input('Please enter the time you would like to wake up at in HH:MM format: '), "%H:%M")
     try:
-	one = timee + timedelta(minutes=900) #smqta greshno zaradi strptime kogato e <=8:00 (vadi 1899 god.) zatova +15h 15*60=900
-	two = timee + timedelta(minutes=990)
-	three = timee + timedelta(minutes=1080)
-	four = timee + timedelta(minutes=1170)
-	print C + "You should try to fall asleep at one of the following times:"
-	time.sleep(0.3)
-	print O + one.strftime('%H:%M')
-	time.sleep(0.3)
-	print two.strftime('%H:%M')
-	time.sleep(0.3)
-	print three.strftime('%H:%M')
-	time.sleep(0.3)
-	print four.strftime('%H:%M')
-	time.sleep(0.5)
+    	timee = datetime.datetime.strptime(raw_input(C + 'Please enter the time you would like to wake up at in HH:MM format: '), "%H:%M")
+	if timee == 2400:
+	    print C + "You should try to fall asleep at one of the following times:"
+	    time.sleep(0.3)
+	    print O + "15:00"
+	    time.sleep(0.3)
+	    print "16:30"
+	    time.sleep(0.3)
+	    print "18:00"
+	    time.sleep(0.3)
+	    print "19:30"
+	    time.sleep(0.5)
+	elif timee != "24:00":   
+	    one = timee + timedelta(minutes=900) #smqta greshno zaradi strptime kogato e <=8:00 (vadi 1899 god.) zatova +15h 15*60=900
+	    two = timee + timedelta(minutes=990)
+	    three = timee + timedelta(minutes=1080)
+	    four = timee + timedelta(minutes=1170)
+	    print C + "You should try to fall asleep at one of the following times:"
+	    time.sleep(0.3)
+	    print O + one.strftime('%H:%M')
+	    time.sleep(0.3)
+	    print two.strftime('%H:%M')
+	    time.sleep(0.3)
+	    print three.strftime('%H:%M')
+	    time.sleep(0.3)
+	    print four.strftime('%H:%M')
+	    time.sleep(0.5)
 	print R + "Please keep in mind that you should be falling asleep at these times."
 	print R + "It takes the average human fourteen minutes to fall asleep."
 	print O + "sleepyti.me works by counting backwards in sleep cycles. Waking up in the middle of a sleep cycle leaves you feeling tired and groggy, but waking up in between cycles wakes you up feeling refreshed and alert!"
 	end()
     except ValueError:
-	print R + "Problems with your input:"
+	print R + "Problems with your input!"
 	print "Please try again!"
     else:
 	break
